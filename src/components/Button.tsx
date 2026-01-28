@@ -21,11 +21,11 @@ export function Button({
   showArrow = true,
   className = "",
 }: ButtonProps) {
-  const baseStyles = "flex items-center justify-center gap-2 font-semibold text-[16px] transition-colors";
+  const baseStyles = "flex items-center justify-center gap-2 font-semibold text-[14px] md:text-[16px] transition-colors";
 
   const variantStyles = {
-    primary: "px-8 py-4 bg-[var(--lime)] rounded-[12px] text-[var(--text-primary)] hover:bg-[var(--lime-hover)]",
-    secondary: "px-8 py-4 rounded-[12px] border-[1.5px] border-[var(--text-primary)] text-[var(--text-primary)] hover:bg-[var(--bg-cream)]",
+    primary: "px-5 md:px-8 py-3 md:py-4 bg-[var(--lime)] rounded-[10px] md:rounded-[12px] border-[1.5px] border-[var(--lime)] text-[var(--text-primary)] hover:bg-[var(--lime-hover)] hover:border-[var(--lime-hover)]",
+    secondary: "px-5 md:px-8 py-3 md:py-4 rounded-[10px] md:rounded-[12px] border-[1.5px] border-[var(--text-primary)] text-[var(--text-primary)] hover:bg-[var(--bg-cream)]",
     ghost: "gap-[6px] font-medium text-[var(--text-primary)] hover:text-[var(--text-secondary)]",
   };
 
@@ -34,7 +34,7 @@ export function Button({
   const content = (
     <>
       {children}
-      {showArrow && (Icon ? <Icon className="w-[18px] h-[18px]" /> : <ArrowRight className="w-[18px] h-[18px]" />)}
+      {showArrow && (Icon ? <Icon className="w-4 h-4 md:w-[18px] md:h-[18px]" /> : <ArrowRight className="w-4 h-4 md:w-[18px] md:h-[18px]" />)}
     </>
   );
 
