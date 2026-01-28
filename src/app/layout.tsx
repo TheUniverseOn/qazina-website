@@ -10,7 +10,27 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Qazina - Business Loans & Insurance Marketplace",
-  description: "Compare business loan offers and insurance quotes in one place. Apply once, get offers from partners, choose the best deal.",
+  description: "Compare business loan offers and insurance quotes in one place. Apply once, get offers from multiple lenders and insurers, choose the best deal.",
+  keywords: ["business loans", "insurance", "Ethiopia", "microfinance", "MFI", "business insurance", "loan comparison"],
+  authors: [{ name: "Qazina" }],
+  openGraph: {
+    title: "Qazina - Business Loans & Insurance Marketplace",
+    description: "Compare business loan offers and insurance quotes in one place. Apply once, get offers from partners, choose the best deal.",
+    url: "https://qazina.com",
+    siteName: "Qazina",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Qazina - Business Loans & Insurance Marketplace",
+    description: "Compare business loan offers and insurance quotes in one place.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL("https://qazina.com"),
 };
 
 export default function RootLayout({
