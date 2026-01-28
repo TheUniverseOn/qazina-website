@@ -21,7 +21,7 @@ export function ProductCard({
   ctaHref,
 }: ProductCardProps) {
   return (
-    <div className="flex flex-col gap-4 md:gap-6 p-6 md:p-10 bg-white rounded-[16px] md:rounded-[24px] border border-[var(--border-light)] w-full md:w-[540px]">
+    <div className="flex flex-col gap-4 md:gap-6 p-6 md:p-10 bg-white rounded-[16px] md:rounded-[24px] border border-[var(--border-light)] w-full lg:w-[540px]">
       {/* Icon Container */}
       <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-[var(--bg-lime-tint)] rounded-[12px] md:rounded-[16px]">
         <Icon className="w-6 h-6 md:w-8 md:h-8 text-[var(--text-primary)]" />

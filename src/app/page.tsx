@@ -54,7 +54,7 @@ export default function HomePage() {
         <h2 className="text-[28px] md:text-[40px] font-semibold text-[var(--text-primary)] text-center">
           What are you looking for?
         </h2>
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-auto">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full lg:w-auto">
           <ProductCard
             icon={Wallet}
             category="Business Loans"
