@@ -1,5 +1,6 @@
 import { NavBar, Footer, Button, StepCard, FaqItem } from "@/components";
 import { ArrowRight, Check, FileText, Building2, Coins } from "lucide-react";
+import Image from "next/image";
 
 export default function LoansPage() {
   return (
@@ -22,10 +23,14 @@ export default function LoansPage() {
           </p>
           <Button href="#apply" className="w-fit">Start Your Application</Button>
         </div>
-        <div className="flex items-center justify-center w-full lg:w-[500px] h-[240px] md:h-[360px] bg-[#F5F5F5] rounded-[16px] md:rounded-[24px] border border-[var(--border-default)]">
-          <span className="text-[14px] md:text-[16px] text-[var(--text-tertiary)] text-center leading-[1.5]">
-            Product Screenshot{"\n"}Placeholder
-          </span>
+        <div className="relative w-full lg:w-[500px] h-[240px] md:h-[360px] rounded-[16px] md:rounded-[24px] overflow-hidden shadow-lg border border-[var(--border-default)]">
+          <Image
+            src="/dashboard-screenshot.png"
+            alt="Qazina Loan Dashboard"
+            fill
+            className="object-cover object-left-top"
+            priority
+          />
         </div>
       </section>
 
