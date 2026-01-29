@@ -35,21 +35,23 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <div className="flex flex-col gap-2 flex-1">
               <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
-                First Name
+                First Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 placeholder="John"
+                required
                 className="h-11 md:h-12 px-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)]"
               />
             </div>
             <div className="flex flex-col gap-2 flex-1">
               <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
-                Last Name
+                Last Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 placeholder="Doe"
+                required
                 className="h-11 md:h-12 px-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)]"
               />
             </div>
@@ -67,14 +69,46 @@ export default function ContactPage() {
             />
           </div>
 
+          {/* Phone Field */}
+          <div className="flex flex-col gap-2 w-full">
+            <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
+              Phone Number <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              placeholder="+251 91 234 5678"
+              required
+              className="h-11 md:h-12 px-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)]"
+            />
+          </div>
+
+          {/* Inquiry Type Field */}
+          <div className="flex flex-col gap-2 w-full">
+            <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
+              I am contacting because <span className="text-red-500">*</span>
+            </label>
+            <select
+              required
+              className="h-11 md:h-12 px-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)] bg-white"
+            >
+              <option value="">Select an option</option>
+              <option value="buy-insurance">I would like to buy insurance</option>
+              <option value="get-loan">I would like to get a loan</option>
+              <option value="insurance-partner">I am an insurance partner</option>
+              <option value="lending-partner">I am a lending partner</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
           {/* Company Field */}
           <div className="flex flex-col gap-2 w-full">
             <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
-              Company
+              Company <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               placeholder="Your Company Name"
+              required
               className="h-11 md:h-12 px-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)]"
             />
           </div>
@@ -82,11 +116,12 @@ export default function ContactPage() {
           {/* Message Field */}
           <div className="flex flex-col gap-2 w-full">
             <label className="text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">
-              Message
+              Message <span className="text-red-500">*</span>
             </label>
             <textarea
               placeholder="How can we help you?"
               rows={5}
+              required
               className="p-4 border border-[var(--border-default)] rounded-[8px] text-[14px] outline-none focus:border-[var(--lime)] resize-none"
             />
           </div>
