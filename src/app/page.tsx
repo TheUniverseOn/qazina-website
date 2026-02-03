@@ -42,8 +42,8 @@ export default function HomePage() {
             Apply once. Get offers from partners. Choose the best deal.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto">
-            <Button href="/loans" className="w-full sm:w-auto">Get Loan Offers</Button>
-            <Button href="/insurance" variant="secondary" className="w-full sm:w-auto">Get Insurance Quotes</Button>
+            <Button href="/contact" className="w-full sm:w-auto">Get Loan Offers</Button>
+            <Button href="/contact" variant="secondary" className="w-full sm:w-auto">Get Insurance Quotes</Button>
           </div>
           <Button href="/contact" variant="ghost">or Talk to us</Button>
         </div>
@@ -62,7 +62,7 @@ export default function HomePage() {
             description="Apply once to multiple lenders. Compare offers. Accept the best terms."
             bullets={["One application", "Multiple offers", "You choose"]}
             ctaText="Compare Loan Offers"
-            ctaHref="/loans"
+            ctaHref="/contact"
           />
           <ProductCard
             icon={Shield}
@@ -71,7 +71,7 @@ export default function HomePage() {
             description="Answer a few questions, compare quotes from top insurers. Buy in minutes."
             bullets={["Multiple quotes", "Easy comparison", "Instant coverage"]}
             ctaText="Get Insurance Quotes"
-            ctaHref="/insurance"
+            ctaHref="/contact"
           />
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function HomePage() {
           <StepCard number={steps[3].number} title={steps[3].title} description={steps[3].description} />
         </div>
 
-        <Button href={activeTab === "loans" ? "/loans" : "/insurance"}>
+        <Button href="/contact">
           {activeTab === "loans" ? "Get Loan Offers" : "Get Insurance Quotes"}
         </Button>
       </section>
@@ -169,7 +169,7 @@ export default function HomePage() {
           <p className="text-[14px] md:text-[16px] text-[var(--text-secondary)] leading-[1.6] max-w-[400px]">
             Compare loan offers from multiple lenders in minutes.
           </p>
-          <Button href="/loans" className="w-fit">Get Loan Offers</Button>
+          <Button href="/contact" className="w-fit">Get Loan Offers</Button>
         </div>
 
         {/* Right CTA */}
@@ -180,7 +180,7 @@ export default function HomePage() {
           <p className="text-[14px] md:text-[16px] text-[var(--text-secondary)] leading-[1.6] max-w-[400px]">
             Get quotes from top insurers and buy coverage online.
           </p>
-          <Button href="/insurance" className="w-fit">Get Insurance Quotes</Button>
+          <Button href="/contact" className="w-fit">Get Insurance Quotes</Button>
         </div>
       </section>
 

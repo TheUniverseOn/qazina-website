@@ -37,7 +37,7 @@ export function NavBar() {
           </Link>
         ))}
         <Link
-          href="/loans"
+          href="/contact"
           className="flex items-center justify-center px-4 lg:px-6 py-2.5 lg:py-3 bg-[var(--lime)] rounded-[10px] lg:rounded-[12px] text-[14px] lg:text-[16px] font-semibold text-[var(--text-primary)] hover:bg-[var(--lime-hover)] transition-colors"
         >
           Get Started
@@ -74,7 +74,7 @@ export function NavBar() {
               </Link>
             ))}
             <Link
-              href="/loans"
+              href="/contact"
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center px-6 py-3 mt-2 bg-[var(--lime)] rounded-[12px] text-[16px] font-semibold text-[var(--text-primary)] hover:bg-[var(--lime-hover)] transition-colors"
             >

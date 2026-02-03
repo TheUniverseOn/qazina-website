@@ -20,7 +20,7 @@ export default function InsurancePage() {
           <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)] leading-[1.6] max-w-[500px]">
             Business insurance made simple. Answer a few questions, compare quotes from top insurers, and buy coverage online.
           </p>
-          <Button href="#quote" className="w-fit">Get Insurance Quotes</Button>
+          <Button href="/contact" className="w-fit">Get Insurance Quotes</Button>
         </div>
         <div className="flex items-center justify-center w-full lg:w-[500px] h-[240px] md:h-[360px] bg-[#F5F5F5] rounded-[16px] md:rounded-[24px] border border-[var(--border-default)]">
           <span className="text-[14px] md:text-[16px] text-[var(--text-tertiary)] text-center leading-[1.5]">
@@ -46,7 +46,7 @@ export default function InsurancePage() {
           <InsuranceLineCard icon={Briefcase} title="Fidelity Guarantee" description="Employee dishonesty" />
           <InsuranceLineCard icon={Package} title="Goods in Transit" description="Shipping protection" />
         </div>
-        <Button href="#quote">Get Quotes for Your Business</Button>
+        <Button href="/contact">Get Quotes for Your Business</Button>
       </section>
 
       {/* How It Works Section */}
@@ -153,7 +153,7 @@ export default function InsurancePage() {
         <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)] text-center">
           Get quotes from multiple insurers with one simple form.
         </p>
-        <Button href="#quote">Get Insurance Quotes</Button>
+        <Button href="/contact">Get Insurance Quotes</Button>
       </section>
 
       <Footer />

@@ -19,7 +19,7 @@ export default function PartnersPage() {
         <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)] text-center leading-[1.6] max-w-[600px]">
           Join our network of microfinance institutions and insurers. Reach more businesses, reduce acquisition costs, and grow your portfolio.
         </p>
-        <Button href="#become-partner">Become a Partner</Button>
+        <Button href="/contact">Become a Partner</Button>
       </section>
 
       {/* For Lenders Section */}
@@ -74,7 +74,7 @@ export default function PartnersPage() {
           </div>
         </div>
 
-        <Button href="#become-partner">Partner With Us</Button>
+        <Button href="/contact">Partner With Us</Button>
       </section>
 
       {/* For Insurers Section */}
@@ -129,7 +129,7 @@ export default function PartnersPage() {
           </div>
         </div>
 
-        <Button href="#become-partner">Partner With Us</Button>
+        <Button href="/contact">Partner With Us</Button>
       </section>
 
       {/* How It Works Section */}

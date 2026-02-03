@@ -21,7 +21,7 @@ export default function LoansPage() {
           <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)] leading-[1.6] max-w-[500px]">
             One application gets you offers from multiple microfinance institutions. Compare terms, choose the best, get funded.
           </p>
-          <Button href="#apply" className="w-fit">Start Your Application</Button>
+          <Button href="/contact" className="w-fit">Start Your Application</Button>
         </div>
         <div className="relative w-full lg:w-[500px] h-[240px] md:h-[360px] rounded-[16px] md:rounded-[24px] overflow-hidden shadow-lg border border-[var(--border-default)]">
           <Image
@@ -78,7 +78,7 @@ export default function LoansPage() {
             </span>
           </div>
         </div>
-        <Button href="#apply">Check My Eligibility</Button>
+        <Button href="/contact">Check My Eligibility</Button>
       </section>
 
       {/* Documents Section */}
@@ -183,7 +183,7 @@ export default function LoansPage() {
             answer="No, Qazina is a marketplace that connects businesses with multiple lenders."
           />
         </div>
-        <Button href="#" variant="ghost">View All FAQs</Button>
+        <Button href="/contact" variant="ghost">View All FAQs</Button>
       </section>
 
       {/* Final CTA Section */}
@@ -194,7 +194,7 @@ export default function LoansPage() {
         <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)] text-center">
           Start your application in 5 minutes. No commitment required.
         </p>
-        <Button href="#apply">Start Your Application</Button>
+        <Button href="/contact">Start Your Application</Button>
       </section>
 
       <Footer />
