@@ -1,9 +1,11 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
-  Edit,
-  Download,
+  Award,
+  Pencil,
+  FilePlus,
   MoreHorizontal,
   FileText,
   CheckCircle2,
@@ -14,6 +16,8 @@ import {
   DollarSign,
   Plus,
   Send,
+  Download,
+  XCircle,
 } from "lucide-react";
 import {
   PageHeader,
@@ -26,7 +30,7 @@ import {
   Tabs,
   FormModal,
 } from "@/components/broker";
-import { CancelPolicyForm } from "@/components/broker/modals";
+import { CancelPolicyForm, FileClaimForm } from "@/components/broker/modals";
 
 // Types
 interface Vehicle {
@@ -137,7 +141,7 @@ const activities = [
     description: "END-2027-0034",
     timestamp: "Jan 28, 2027",
     iconColor: "info" as const,
-    icon: <Edit size={16} />,
+    icon: <Pencil size={16} />,
   },
   {
     id: "4",
@@ -179,8 +183,24 @@ const invoiceStatusConfig: Record<Invoice["status"], { label: string; variant: "
 
 export default function PolicyDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("overview");
   const [showCancelModal, setShowCancelModal] = useState(false);
+  const [showFileClaimModal, setShowFileClaimModal] = useState(false);
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const moreMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
+        setShowMoreMenu(false);
+      }
+    }
+    if (showMoreMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [showMoreMenu]);
 
   const vehicleColumns: Column<Vehicle>[] = [
     { key: "plateNo", header: "Plate No.", width: "120px" },
@@ -451,18 +471,38 @@ export default function PolicyDetailPage({ params }: { params: Promise<{ id: str
         badge={<StatusChip variant="success">Active</StatusChip>}
         actions={
           <>
-            <BrokerButton variant="secondary" leftIcon={<Download size={16} />}>
-              Download
+            <BrokerButton variant="secondary" leftIcon={<Award size={16} />} onClick={() => router.push("/broker/certificates")}>
+              Certificates
             </BrokerButton>
-            <BrokerButton variant="secondary" leftIcon={<Edit size={16} />}>
-              Request Endorsement
+            <BrokerButton variant="secondary" leftIcon={<Pencil size={16} />} onClick={() => router.push("/broker/endorsements")}>
+              Endorsement
             </BrokerButton>
-            <BrokerButton variant="danger" onClick={() => setShowCancelModal(true)}>
-              Cancel Policy
+            <BrokerButton variant="primary" leftIcon={<FilePlus size={16} />} onClick={() => setShowFileClaimModal(true)}>
+              File Claim
             </BrokerButton>
-            <BrokerButton variant="ghost" size="sm">
-              <MoreHorizontal size={20} />
-            </BrokerButton>
+            <div className="relative" ref={moreMenuRef}>
+              <BrokerButton variant="ghost" size="sm" onClick={() => setShowMoreMenu(!showMoreMenu)}>
+                <MoreHorizontal size={20} />
+              </BrokerButton>
+              {showMoreMenu && (
+                <div className="absolute right-0 top-full mt-1 w-48 bg-white rounded-[var(--radius-md)] border border-[var(--bg-border)] shadow-lg z-50 py-1">
+                  <button
+                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-colors"
+                    onClick={() => { setShowMoreMenu(false); }}
+                  >
+                    <Download size={14} className="text-[var(--text-secondary)]" />
+                    Download Policy
+                  </button>
+                  <button
+                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-[var(--status-error)] hover:bg-[var(--bg-surface)] transition-colors"
+                    onClick={() => { setShowMoreMenu(false); setShowCancelModal(true); }}
+                  >
+                    <XCircle size={14} />
+                    Cancel Policy
+                  </button>
+                </div>
+              )}
+            </div>
           </>
         }
       />
@@ -479,6 +519,17 @@ export default function PolicyDetailPage({ params }: { params: Promise<{ id: str
         {activeTab === "billing" && renderBillingTab()}
         {activeTab === "activity" && renderActivityTab()}
       </div>
+      {/* File Claim Modal */}
+      <FormModal
+        isOpen={showFileClaimModal}
+        onClose={() => setShowFileClaimModal(false)}
+        onSubmit={() => setShowFileClaimModal(false)}
+        title="File New Claim"
+        submitLabel="File Claim"
+      >
+        <FileClaimForm />
+      </FormModal>
+
       {/* Cancel Policy Modal */}
       <FormModal
         isOpen={showCancelModal}

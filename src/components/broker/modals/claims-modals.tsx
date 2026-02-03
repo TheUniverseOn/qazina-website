@@ -42,6 +42,46 @@ export function SubmitClaimToInsurerForm() {
   );
 }
 
+export function FileClaimForm() {
+  return (
+    <>
+      <SelectInput
+        label="Client *"
+        options={[
+          { value: "", label: "Select client" },
+          { value: "abc", label: "ABC Fleet Services" },
+          { value: "xyz", label: "XYZ Transport" },
+          { value: "ethio", label: "Ethio Logistics PLC" },
+        ]}
+      />
+      <SelectInput
+        label="Policy *"
+        options={[
+          { value: "", label: "Select policy" },
+          { value: "pol-2027-0012", label: "POL-2027-0012 — Comprehensive Motor" },
+          { value: "pol-2027-0008", label: "POL-2027-0008 — Third Party" },
+        ]}
+      />
+      <SelectInput
+        label="Claim Type *"
+        options={[
+          { value: "", label: "Select claim type" },
+          { value: "accident", label: "Accident" },
+          { value: "theft", label: "Theft" },
+          { value: "fire", label: "Fire" },
+          { value: "flood", label: "Flood / Natural Disaster" },
+          { value: "vandalism", label: "Vandalism" },
+          { value: "other", label: "Other" },
+        ]}
+      />
+      <DatePicker label="Date of Incident *" />
+      <TextInput label="Estimated Amount (ETB) *" placeholder="0.00" />
+      <Textarea label="Incident Description *" placeholder="Describe the incident in detail..." rows={3} />
+      <FileUpload label="Supporting Documents" accept=".pdf,.jpg,.png" multiple hint="Upload photos, police reports, or other evidence" />
+    </>
+  );
+}
+
 export function RecordSettlementForm() {
   return (
     <>
